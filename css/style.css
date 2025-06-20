@@ -1,0 +1,225 @@
+/* Generales: Reseteo básico y tipografía */
+body {
+    margin: 0;
+    font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+    padding: 20px;
+}
+
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Estilo del Header (Cabecera) */
+header {
+    text-align: center;
+    padding: 40px 0;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 0px;
+}
+
+.profile-header {
+    display: flex; /* Ahora los elementos hijos (img y profile-info) se alinearán horizontalmente */
+    flex-direction: row; /* Asegura que la dirección sea fila */
+    align-items: center; /* Centra los elementos verticalmente en la fila */
+    justify-content: center; /* Centra el contenido del profile-header horizontalmente */
+    gap: 20px; /* Espacio entre la foto y la información */
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    /* margin-bottom: 10px; -- ESTO YA NO ES NECESARIO AQUI */
+}
+
+.profile-info { /* NUEVO ESTILO PARA EL CONTENEDOR DEL NOMBRE Y ENLACES */
+    display: flex;
+    flex-direction: column; /* Apila el nombre y los enlaces verticalmente */
+    align-items: flex-start; /* Alinea el texto a la izquierda dentro de este contenedor */
+    text-align: left; /* Asegura que el texto esté alineado a la izquierda */
+}
+
+h1 {
+    font-size: 2em;
+    color: #222;
+    margin-top: 0;
+    margin-bottom: 5px; /* Pequeño margen debajo del nombre */
+    font-weight: 600;
+}
+
+.social-links {
+    /* display: flex;  -- Si quieres que los links sean una fila de flex items */
+    /* flex-wrap: wrap; */ /* Permite que los links se envuelvan a la siguiente línea si no caben */
+    /* justify-content: flex-start; */ /* Alinea los links a la izquierda */
+    font-size: 0.9em; /* Ajusta el tamaño de la fuente de los links */
+}
+
+.social-links a {
+    color: #0a529f;
+    text-decoration: none;
+    margin: 0 5px; /* Un poco menos de espacio entre los enlaces para que queden más juntos */
+    transition: color 0.3s ease;
+}
+
+/* Asegura que el primer link no tenga un separador a la izquierda y el último no a la derecha si usas '|' */
+.social-links a:first-child {
+    margin-left: 0;
+}
+.social-links a:last-child {
+    margin-right: 0;
+}
+
+
+.social-links a:hover {
+    color: #0a529f;
+    text-decoration: underline;
+}
+
+/* Sección "About Me" (SIN CAMBIOS) */
+.about-me {
+    font-size: 0.9em;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.about-me p {
+    margin-bottom: 1em;
+}
+
+.about-me a {
+    color: #0a529f;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.about-me a:hover {
+    color: #0a529f;
+    text-decoration: underline;
+}
+
+.highlight {
+    font-weight: 600;
+    color: #222;
+}
+
+/* Sección "Recent research highlights" (SIN CAMBIOS) */
+.research-highlights {
+    margin-bottom: 20px;
+}
+
+.research-highlights p {
+    font-size: 0.9em;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.project-card a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease-in-out;
+}
+
+.project-card a:hover {
+    transform: scale(1.02);
+}
+
+.project-card img {
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid #eee;
+}
+
+.project-card h3 {
+    font-size: 1.2em;
+    margin: 15px;
+    font-weight: 500;
+    color: #333;
+}
+
+.project-card p {
+    margin: 0 15px 15px;
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    header {
+        padding: 30px 0;
+        margin-bottom: 30px;
+    }
+
+    .profile-header {
+        flex-direction: column; /* Volver a apilar en pantallas pequeñas */
+        gap: 10px; /* Reduce el espacio cuando se apilan */
+    }
+
+    .profile-info {
+        align-items: center; /* Centrar el nombre y los links cuando se apilan */
+        text-align: center; /* Centrar el texto cuando se apilan */
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .profile-pic {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 8px; /* Añade un pequeño margen inferior a la foto cuando se apila */
+    }
+
+    .social-links a {
+        display: inline-block; /* Mantenerlos en línea pero permite margin */
+        margin: 5px 5px; /* Espacio vertical y horizontal */
+    }
+
+    .about-me {
+        font-size: 1em;
+        text-align: left;
+        margin-bottom: 40px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 20px 0;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+}
